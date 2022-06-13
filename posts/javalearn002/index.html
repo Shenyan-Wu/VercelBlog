@@ -1,0 +1,540 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java入门学习记录（二） | ShenyanWu's Blog</title><meta name="keywords" content="学习记录,Java"><meta name="author" content="Shenyan Wu"><meta name="copyright" content="Shenyan Wu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 注释(comments) 在项目结构较复杂的前提下，为了方便代码的可阅读性，我们需要用到注释。 注释不会执行，只用来解释代码，提高代码的阅读性。 Java的注释分为三种，分别是   单行注释   使用&#x2F;&#x2F;来注释，只能注释一行内容，IDEA中快捷键为Ctrl + &#x2F; 1&#x2F;&#x2F; 这是一个单行注释   多行注释   使用&#x2F;* *&#x2F;来注释，注释多行内容，用在代码块的开头和结尾，IDEA中快捷键为Ctr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java入门学习记录（二）">
+<meta property="og:url" content="https://shenyan-wu.github.io/posts/javalearn002/index.html">
+<meta property="og:site_name" content="ShenyanWu&#39;s Blog">
+<meta property="og:description" content="1 注释(comments) 在项目结构较复杂的前提下，为了方便代码的可阅读性，我们需要用到注释。 注释不会执行，只用来解释代码，提高代码的阅读性。 Java的注释分为三种，分别是   单行注释   使用&#x2F;&#x2F;来注释，只能注释一行内容，IDEA中快捷键为Ctrl + &#x2F; 1&#x2F;&#x2F; 这是一个单行注释   多行注释   使用&#x2F;* *&#x2F;来注释，注释多行内容，用在代码块的开头和结尾，IDEA中快捷键为Ctr">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png">
+<meta property="article:published_time" content="2021-02-07T17:53:16.000Z">
+<meta property="article:modified_time" content="2021-07-19T13:39:24.000Z">
+<meta property="article:author" content="Shenyan Wu">
+<meta property="article:tag" content="学习记录">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png"><link rel="shortcut icon" href="/Hexo_Blog/img/favicon.png"><link rel="canonical" href="https://shenyan-wu.github.io/posts/javalearn002/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Hexo_Blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/Hexo_Blog/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-19 21:39:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/transparency.css"><link rel="stylesheet" href="/css/indexfont.css"><link rel="stylesheet" href="/css/roller.css"><link rel="stylesheet" href="/css/colorfulcard.css"><link rel="stylesheet" href="/css/iconfont/iconfont.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/bb/showbb_in_index.css"><meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/Hexo_Blog/css/prism-tomorrow.css" type="text/css"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/Hexo_Blog/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/Hexo_Blog/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Hexo_Blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/Hexo_Blog/videos/"><i class="fa-fw fas fa-video"></i><span> Videos</span></a></li><li><a class="site-page" href="/Hexo_Blog/bangumis/"><i class="fa-fw fas fa-folder"></i><span> 追番收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/link/"><i class="fa-fw fas fa-address-book"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/comment/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/about/"><i class="fa-fw fas fa-address-book"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/subghost.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/Hexo_Blog/">ShenyanWu's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Hexo_Blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/Hexo_Blog/videos/"><i class="fa-fw fas fa-video"></i><span> Videos</span></a></li><li><a class="site-page" href="/Hexo_Blog/bangumis/"><i class="fa-fw fas fa-folder"></i><span> 追番收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/link/"><i class="fa-fw fas fa-address-book"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/comment/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/about/"><i class="fa-fw fas fa-address-book"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java入门学习记录（二）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-07T17:53:16.000Z" title="发表于 2021-02-08 01:53:16">2021-02-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-19T13:39:24.000Z" title="更新于 2021-07-19 21:39:24">2021-07-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="java"></p>
+<h2 id="1-注释-comments">1 注释(comments)</h2>
+<p>在项目结构较复杂的前提下，为了方便代码的可阅读性，我们需要用到注释。</p>
+<p>注释不会执行，只用来解释代码，提高代码的阅读性。</p>
+<p>Java的注释分为三种，分别是</p>
+<ul>
+<li>
+<p>单行注释   使用<code>//</code>来注释，只能注释一行内容，IDEA中快捷键为<strong>Ctrl + /</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是一个单行注释</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>多行注释   使用<code>/* */</code>来注释，注释多行内容，用在代码块的开头和结尾，IDEA中快捷键为<strong>Ctrl +Shift+ /</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 这是一个多行注释 */</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>文档注释（也称类注释）输入<code>/**</code> ,点击<code>Enter</code>，自动根据参数和返回值生成注释模板。在IDEA中的配置可以参考这位大佬的讲解——<strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/gino725/article/details/89510350">传送门</a></strong></p>
+</li>
+</ul>
+<h2 id="2-标识符和关键字">2 标识符和关键字</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java%E5%85%B3%E9%94%AE%E5%AD%97.png" alt=""></p>
+<center><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/java%E5%85%B3%E9%94%AE%E5%AD%97/5808816?fr=aladdin"> 关键字 </a></center>
+<table>
+<thead>
+<tr>
+<th><strong>关键字</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abstract</td>
+<td>表明类或者成员方法具有抽象属性</td>
+</tr>
+<tr>
+<td>assert</td>
+<td>断言，用来进行程序调试</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>基本数据类型之一，布尔类型</td>
+</tr>
+<tr>
+<td>break</td>
+<td>提前跳出一个块</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>基本数据类型之一，字节类型</td>
+</tr>
+<tr>
+<td>case</td>
+<td>用在switch语句之中，表示其中的一个分支</td>
+</tr>
+<tr>
+<td>catch</td>
+<td>用在异常处理中，用来捕捉异常</td>
+</tr>
+<tr>
+<td>char</td>
+<td>基本数据类型之一，字符类型</td>
+</tr>
+<tr>
+<td>class</td>
+<td>声明一个类</td>
+</tr>
+<tr>
+<td>const</td>
+<td>保留关键字，没有具体含义</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>回到一个块的开始处</td>
+</tr>
+<tr>
+<td>default</td>
+<td>默认，例如，用在switch语句中，表明一个默认的分支</td>
+</tr>
+<tr>
+<td>do</td>
+<td>用在do-while循环结构中</td>
+</tr>
+<tr>
+<td>double</td>
+<td>基本数据类型之一，双精度浮点数类型</td>
+</tr>
+<tr>
+<td>else</td>
+<td>用在条件语句中，表明当条件不成立时的分支</td>
+</tr>
+<tr>
+<td>enum</td>
+<td>枚举</td>
+</tr>
+<tr>
+<td>extends</td>
+<td>表明一个类型是另一个类型的子类型，这里常见的类型有类和接口</td>
+</tr>
+<tr>
+<td>final</td>
+<td>用来说明最终属性，表明一个类不能派生出子类，或者成员方法不能被覆盖，或者成员域的值不能被改变，用来定义常量</td>
+</tr>
+<tr>
+<td>finally</td>
+<td>用于处理异常情况，用来声明一个基本肯定会被执行到的语句块</td>
+</tr>
+<tr>
+<td>float</td>
+<td>基本数据类型之一，单精度浮点数类型</td>
+</tr>
+<tr>
+<td>for</td>
+<td>一种循环结构的引导词</td>
+</tr>
+<tr>
+<td>goto</td>
+<td>保留关键字，没有具体含义</td>
+</tr>
+<tr>
+<td>if</td>
+<td>条件语句的引导词</td>
+</tr>
+<tr>
+<td>implements</td>
+<td>表明一个类实现了给定的接口</td>
+</tr>
+<tr>
+<td>import</td>
+<td>表明要访问指定的类或包</td>
+</tr>
+<tr>
+<td>instanceof</td>
+<td>用来测试一个对象是否是指定类型的实例对象</td>
+</tr>
+<tr>
+<td>int</td>
+<td>基本数据类型之一，整数类型</td>
+</tr>
+<tr>
+<td>interface</td>
+<td>接口</td>
+</tr>
+<tr>
+<td>long</td>
+<td>基本数据类型之一，长整数类型</td>
+</tr>
+<tr>
+<td>native</td>
+<td>用来声明一个方法是由与计算机相关的语言（如C/C++/FORTRAN语言）实现的</td>
+</tr>
+<tr>
+<td>new</td>
+<td>用来创建新实例对象</td>
+</tr>
+<tr>
+<td>package</td>
+<td>包</td>
+</tr>
+<tr>
+<td>private</td>
+<td>一种访问控制方式：私用模式</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>一种访问控制方式：保护模式</td>
+</tr>
+<tr>
+<td>public</td>
+<td>一种访问控制方式：共用模式</td>
+</tr>
+<tr>
+<td>return</td>
+<td>从成员方法中返回数据</td>
+</tr>
+<tr>
+<td>short</td>
+<td>基本数据类型之一,短整数类型</td>
+</tr>
+<tr>
+<td>static</td>
+<td>表明具有静态属性</td>
+</tr>
+<tr>
+<td>strictfp</td>
+<td>用来声明FP_strict（单精度或双精度浮点数）表达式遵循IEEE 754算术规范 [1]</td>
+</tr>
+<tr>
+<td>super</td>
+<td>表明当前对象的父类型的引用或者父类型的构造方法</td>
+</tr>
+<tr>
+<td>switch</td>
+<td>分支语句结构的引导词</td>
+</tr>
+<tr>
+<td>synchronized</td>
+<td>表明一段代码需要同步执行</td>
+</tr>
+<tr>
+<td>this</td>
+<td>指向当前实例对象的引用</td>
+</tr>
+<tr>
+<td>throw</td>
+<td>抛出一个异常</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>声明在当前定义的成员方法中所有需要抛出的异常</td>
+</tr>
+<tr>
+<td>transient</td>
+<td>声明不用序列化的成员域</td>
+</tr>
+<tr>
+<td>try</td>
+<td>尝试一个可能抛出异常的程序块</td>
+</tr>
+<tr>
+<td>void</td>
+<td>声明当前成员方法没有返回值</td>
+</tr>
+<tr>
+<td>volatile</td>
+<td>表明两个或者多个变量必须同步地发生变化</td>
+</tr>
+<tr>
+<td>while</td>
+<td>用在循环结构中</td>
+</tr>
+</tbody>
+</table>
+<p>Java所有的组成部分都需要名称。类名、变量名以及方法名都称为标识符。</p>
+<blockquote>
+<ul>
+<li>所有的标识符都应该以字母（A - Z 或者 a - z）,美元符（$）、或者下划线（_）开始</li>
+<li>首字符之后可以是字母（A - Z 或者 a - z）,美元符（$）、或者下划线（_）或数字的任何字符组合</li>
+<li><strong>不能使用关键字作为变量名或方法名</strong></li>
+<li>标识符是大小写敏感的</li>
+<li>可以使用中文名称，但不建议使用。</li>
+</ul>
+</blockquote>
+<h2 id="3-数据类型">3 数据类型</h2>
+<h3 id="强类型语言-Java-C-···">强类型语言(Java, C++, ···)</h3>
+<blockquote>
+<p>要求变量的使用要严格符合规定，所有变量都必须先定义后才能使用</p>
+</blockquote>
+<h3 id="Java的数据类型分为两大类">Java的数据类型分为两大类</h3>
+<ul>
+<li>
+<p><strong>基本类型   ( primitive type )</strong></p>
+</li>
+<li>
+<p><strong>引用类型   ( reference type )</strong></p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png" alt=""></p>
+<p><strong>八大基本数据类型的示例如下</strong></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">	<span class="comment">// 八大基本数据类型</span></span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 整数</span></span><br><span class="line">	<span class="keyword">int</span>   num1 = <span class="number">10</span>;  <span class="comment">// 最常用</span></span><br><span class="line">	<span class="keyword">byte</span>  num2 = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">short</span> num3 = <span class="number">30</span>;</span><br><span class="line">	<span class="keyword">long</span>  num4 = <span class="number">30L</span>; <span class="comment">// Long类型要在数字后面加个L</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 小数:浮点数</span></span><br><span class="line">	<span class="keyword">float</span>  num5 = <span class="number">50.1F</span>; <span class="comment">// Lfloat类型要在数字后面加个F</span></span><br><span class="line">	<span class="keyword">double</span> num6 = <span class="number">3.141592653589793238462643</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 字符</span></span><br><span class="line">	<span class="keyword">char</span> name =<span class="string">'A'</span>;</span><br><span class="line">	<span class="comment">// 字符串, String不是关键字, 类</span></span><br><span class="line">	<span class="comment">// String name = "User";</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//布尔值:是非</span></span><br><span class="line">	<span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">	<span class="comment">// boolean flag = false;</span></span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>关于引用数据类型在之后的学习中再逐步说明</p>
+<h2 id="4-类型转换">4 类型转换</h2>
+<ul>
+<li>由于Java是强类型语言，所以要进行有些运算时，需要类型转换</li>
+<li>运算中，不同类型的数据先转换为相同的类型，然后再运算。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt=""></p>
+<p><strong>强制转换</strong></p>
+<p>如下代码，若<code>byte b = (byte)i;</code>写成<code>byte b = i;</code>则会发生错误，因为数据类型不同。下方为一个演示，因为byte类型最大为127，赋值128发生内存溢出导致输出-128，所以使用时也应当注意各数据类型所占空间大小。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span>  i = <span class="number">128</span>;</span><br><span class="line">        <span class="keyword">byte</span> b = (<span class="keyword">byte</span>)i; <span class="comment">// 内存溢出</span></span><br><span class="line">        System.out.println(i); <span class="comment">//  128</span></span><br><span class="line">        System.out.println(b); <span class="comment">// -128</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>不能对布尔值转换</p>
+<p>不能把对象类型转换为不相干类型</p>
+<p>把高容量转换低容量时，强制转换</p>
+<p>转换时需注意内存溢出和精度问题</p>
+</blockquote>
+<p>再弄一个比较经典的例子</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span>  a = <span class="number">10_0000_0000</span>; <span class="comment">// 在JDK7之后数字之间可以使用_分割，看起来更直观</span></span><br><span class="line">        <span class="keyword">byte</span> b = <span class="number">20</span>; <span class="comment">// 内存溢出</span></span><br><span class="line">        in    total = a * b;   <span class="comment">// -1474836480 产生内存溢出</span></span><br><span class="line">        <span class="keyword">long</span> total1 = a * b;   <span class="comment">// 因为右侧先是int计算，在转换之前已经产生了内存溢出，仍然输出错误</span></span><br><span class="line">        <span class="keyword">long</span> total2 = a * ((<span class="keyword">long</span>)b); <span class="comment">// 先转换一个值，数据类型在计算中就会转换，正常</span></span><br><span class="line">        System.out.println(tota);  <span class="comment">// 错误结果</span></span><br><span class="line">        System.out.println(total); <span class="comment">// 错误结果</span></span><br><span class="line">        System.out.println(tota2); <span class="comment">// 正确结果</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="5-变量、常量、作用域">5 变量、常量、作用域</h2>
+<p>变量需要声明其类型，Java变量是程序中最基本的存储单元，其要素包括变量名，变量类型和作用域。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type varName  [=value] [{, varName[=value]}];</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>每个变量都有类型，类型可以是基本类型，也可以是引用类型</p>
+<p>变量名必须为合法标识符</p>
+<p>变量声明是一条完整的语句，因此每一个声明都必须以分号结束</p>
+</blockquote>
+<h3 id="变量作用域">变量作用域</h3>
+<ul>
+<li>类变量     关键词<code> static</code> ，从属类</li>
+<li>实例变量</li>
+<li>局部变量</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variable</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">0</span>; <span class="comment">// 类变量</span></span><br><span class="line">    String str = <span class="string">"hello"</span>; <span class="comment">// 实例变量, 从属于对象，不初始化基本类型默认0，其他null</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>; <span class="comment">// 局部变量, 必须声明和初始化</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="常量">常量</h3>
+<p>初始化之后不会再改变的值，程序运行中不会改变</p>
+<p>一般常量名为大写字符，使用关键字<code>final</code></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> 常量名 = 常量值</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="6-基本运算符">6 基本运算符</h2>
+<p><strong>Java语言支持如下运算符</strong></p>
+<ul>
+<li>算术运算符:   +, -, *, /, %, ++, –</li>
+<li>赋值运算符:   =</li>
+<li>关系运算符:   &gt;, &lt;, &gt;=, &lt;=, ==, != instanceof</li>
+<li>逻辑运算符:   &amp;&amp;, ||, !</li>
+<li>位运算符:       &amp;, |, ^, ~, &gt;&gt;, &lt;&lt;, &gt;&gt;&gt;</li>
+<li>条件运算符:   ?, :</li>
+<li>扩展赋值运算符:   +=, -=, *=, /=</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    <span class="keyword">long</span>  a = <span class="number">123123123</span>;</span><br><span class="line">    <span class="keyword">int</span>   b = <span class="number">123</span>;</span><br><span class="line">    <span class="keyword">short</span> c = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">byte</span>  d = <span class="number">8</span>;</span><br><span class="line">    System.out.println(a+b+c+d); <span class="comment">// Output is Long</span></span><br><span class="line">    System.out.println(b+c+d); <span class="comment">// Output is Int</span></span><br><span class="line">    System.out.println(c+d); <span class="comment">// Output is Int</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>在操作数为整数运算时，有<code>long</code>类型结果会转换为<code>long</code>类型，没有的话为<code>int</code>类型，同理<code>double</code>类型也有这样的结果</p>
+</blockquote>
+<p><strong>自增自减运算符( ++, – )</strong></p>
+<p>有C语言基础的相信都不陌生，也就是<code>a++</code>相当于<code>a = a + 1</code>，主要区别在于</p>
+<blockquote>
+<p>输出 <code>a++</code> 的值仍然为a的值，本身虽然值不变，但在之后执行加一操作，而<code>++a</code>要先执行加一，则++a的输出值等于<code>a+1</code>，相当于一个先后赋值的问题</p>
+</blockquote>
+<p>有个有趣的例子，如下</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">int</span> b = a++; <span class="comment">// 这句话相当于先给b赋值，b = a, 之后再执行 +1</span></span><br><span class="line">    System.out.println(a); <span class="comment">// Output is 4</span></span><br><span class="line">    <span class="keyword">int</span> c = ++a; <span class="comment">// 这句话相当于先执行 +1，之后再给 c 赋值</span></span><br><span class="line">    System.out.println(a); <span class="comment">// Output is 5</span></span><br><span class="line">    System.out.println(b); <span class="comment">// Output is 3</span></span><br><span class="line">    System.out.println(c); <span class="comment">// Output is 5</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>逻辑运算符、位运算符</strong></p>
+<p>两个操作数相与，只要有一个为false，则结果为false，真与真为真；</p>
+<p>两个操作数相或，只要有一个为true，则结果为true，假或假为假。</p>
+<p>这里也有一个有趣的例子，嘿嘿</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">boolean</span> d = (c&lt;<span class="number">4</span>)&amp;&amp;(++c&gt;<span class="number">4</span>);   </span><br><span class="line">    System.out.println(d); <span class="comment">// Output is false</span></span><br><span class="line">    System.out.println(c); <span class="comment">// Output is 5 // c 的值不改变因为刚开始(c&lt;4)已经为false，与运算后面											   就不再执行了</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>关于位运算，还是例子更加直接</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  A = 0011 1100</span></span><br><span class="line"><span class="comment">  B = 0000 1101 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">A&amp;B = 0000 1100</span></span><br><span class="line"><span class="comment">A|B = 0011 1101</span></span><br><span class="line"><span class="comment">A^B = 0011 0001</span></span><br><span class="line"><span class="comment"> ~B = 1111 0010</span></span><br><span class="line"><span class="comment"> 关于移位 &gt;&gt; &lt;&lt;</span></span><br><span class="line"><span class="comment"> 在二进制中移位，如2 * 8 = 16</span></span><br><span class="line"><span class="comment"> 0000 0010    2</span></span><br><span class="line"><span class="comment"> 0001 0000   16</span></span><br><span class="line"><span class="comment"> System.out.println(2&lt;&lt;3); // 2左移3位</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="7-包机制、JavaDoc">7 包机制、JavaDoc</h2>
+<p>为了更好地组织类，Java提供了包机制，用于区别类名的命名空间。</p>
+<p>包语句的语法格式为：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> pkg1[. pkg2[. pkg3...]];</span><br></pre></td></tr></tbody></table></figure>
+<p>为了能够使用某一个包的成员，需要在Java程序中明确导入该包。使用<code>import</code>语句可完成此功能。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> package1[.package2...].(classname|*);</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>看到这里是不是有点似曾相识呢，有些类似python，包相当于一个文件夹，可以防止名称相同但功能不同的类的冲突。</p>
+<ul>
+<li>在使用包内的类时，需要在前导入包</li>
+</ul>
+</blockquote>
+<p>关于详细的包命名规范以及导入规则，可以参考一下<a target="_blank" rel="noopener" href="https://yq.aliyun.com/download/2720?utm_content=m_1000019584&amp;do=login&amp;accounttraceid=b3d7b481cb62456d81e2f20acdf06409kgvp">《阿里巴巴Java开发手册》</a></p>
+<h3 id="JavaDoc">JavaDoc</h3>
+<p>javadoc命令是用来生成自己API文档的</p>
+<p>可以在cmd中使用此命令，对于在IDEA中生成，网上搜索即可，可以随便参考一下——<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27721169/article/details/81087119">传送门</a></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc -encoding UTF-8 -charset UTF-8 yourDocname.java</span><br></pre></td></tr></tbody></table></figure>
+<p>对于Java的学习，官方提供了一个超级强大详细的文档，参考Java官方的<a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/technologies/java-se-api-doc.html">帮助文档</a></p>
+<center>待学习更新···</center></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Shenyan Wu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://shenyan-wu.github.io/posts/javalearn002/">https://shenyan-wu.github.io/posts/javalearn002/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Shenyan-Wu.github.io" target="_blank">ShenyanWu's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/Hexo_Blog/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><a class="post-meta__tags" href="/Hexo_Blog/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/Hexo_Blog/img/reward/wechat.png" target="_blank"><img class="post-qr-code-img" src="/Hexo_Blog/img/reward/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/Hexo_Blog/img/reward/alipay.png" target="_blank"><img class="post-qr-code-img" src="/Hexo_Blog/img/reward/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Hexo_Blog/posts/javalearn003/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="onerror=null;src='/Hexo_Blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java入门学习记录（三）</div></div></a></div><div class="next-post pull-right"><a href="/Hexo_Blog/posts/javalearn001/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="onerror=null;src='/Hexo_Blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java入门学习记录（一）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-11</div><div class="title">Java入门学习记录（九）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn007/" title="Java入门学习记录（七）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-13</div><div class="title">Java入门学习记录（七）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn008/" title="Java入门学习记录（八）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-29</div><div class="title">Java入门学习记录（八）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-28</div><div class="title">Java入门学习记录（十）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn001/" title="Java入门学习记录（一）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-06</div><div class="title">Java入门学习记录（一）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-21</div><div class="title">Java入门学习记录（十一）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Shenyan Wu</div><div class="author-info__description">记录学习，记录生活</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/Hexo_Blog/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/Hexo_Blog/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Shenyan-Wu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Shenyan-Wu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:officialsyw@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_44730817?spm=1010.2135.3001.5343" target="_blank" title="CSDN"><i class="iconfont icon-csdn1"></i></a><a class="social-icon" href="http://sighttp.qq.com/authd?IDKEY=d3a93952ff42a0672292148c2b2a6b293a3f073491636155" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎访问本博客，大家有什么疑问可以一起交流研究哦，留言留下你的看法吧! <img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/announcement001.gif"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B3%A8%E9%87%8A-comments"><span class="toc-number">1.</span> <span class="toc-text">1 注释(comments)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.</span> <span class="toc-text">2 标识符和关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">3 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E7%B1%BB%E5%9E%8B%E8%AF%AD%E8%A8%80-Java-C-%C2%B7%C2%B7%C2%B7"><span class="toc-number">3.1.</span> <span class="toc-text">强类型语言(Java, C++, ···)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E4%B8%BA%E4%B8%A4%E5%A4%A7%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">Java的数据类型分为两大类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.</span> <span class="toc-text">4 类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%98%E9%87%8F%E3%80%81%E5%B8%B8%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">5.</span> <span class="toc-text">5 变量、常量、作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">5.1.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">5.2.</span> <span class="toc-text">常量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">6.</span> <span class="toc-text">6 基本运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8C%85%E6%9C%BA%E5%88%B6%E3%80%81JavaDoc"><span class="toc-number">7.</span> <span class="toc-text">7 包机制、JavaDoc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaDoc"><span class="toc-number">7.1.</span> <span class="toc-text">JavaDoc</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/embeddedbackground.jpg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="总线协议概述"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述">总线协议概述</a><time datetime="2021-10-23T18:22:16.000Z" title="发表于 2021-10-24 02:22:16">2021-10-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ROS.jpeg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="ROS noetic 概述与环境搭建"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建">ROS noetic 概述与环境搭建</a><time datetime="2021-08-26T01:13:16.000Z" title="发表于 2021-08-26 09:13:16">2021-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十一）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）">Java入门学习记录（十一）</a><time datetime="2021-07-20T20:03:16.000Z" title="发表于 2021-07-21 04:03:16">2021-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）">Java入门学习记录（十）</a><time datetime="2021-05-28T01:13:16.000Z" title="发表于 2021-05-28 09:13:16">2021-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（九）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）">Java入门学习记录（九）</a><time datetime="2021-05-11T03:11:16.000Z" title="发表于 2021-05-11 11:11:16">2021-05-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Shenyan Wu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><br/> <img title="博客框架为Hexo" class="entered loading" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loading"> &nbsp;&nbsp; <img title="主题采用butterfly" class="entered loading" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loading" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站托管于Coding" class="entered loading" src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站项目由Gtihub托管" class="entered loading" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" class="entered loading" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loading"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/Hexo_Blog/js/utils.js"></script><script src="/Hexo_Blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/Hexo_Blog/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'kfGdJUEO2h5qKRHUtYkmpqWT-gzGzoHsz',
+      appKey: 'E8WATfvquN4qKeVpzo5inRIr',
+      placeholder: '有什么问题请留言给我吧！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/crash_cheat.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="Html,CSS,C++,Java,JavaScript,Python,Ruby,Clion,PyCharm,Intellij IDEA,Visual Studio Code" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/Hexo_Blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/Hexo_Blog/live2dw/assets/haruto.model.json"},"display":{"position":"letf","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

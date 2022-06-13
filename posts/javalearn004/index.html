@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java入门学习记录（四） | ShenyanWu's Blog</title><meta name="keywords" content="学习记录,Java"><meta name="author" content="Shenyan Wu"><meta name="copyright" content="Shenyan Wu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="方法详解 方法 Java 方法是语句的集合，它们在一起执行一个功能。  方法是解决一类问题的步骤的有序组合 方法包含于类或对象中 方法在程序中被创建，在其他地方被引用  方法包含一个方法头和一个方法体。下面是一个方法的所有部分：  修饰符：可选。告诉编译器如何调用该方法，定义了方法的类型 返回值类型：方法可能会返回值。返回值类型定义了方法的返回的值的类型。一些方法没有返回值，这种情况下返回值类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java入门学习记录（四）">
+<meta property="og:url" content="https://shenyan-wu.github.io/posts/javalearn004/index.html">
+<meta property="og:site_name" content="ShenyanWu&#39;s Blog">
+<meta property="og:description" content="方法详解 方法 Java 方法是语句的集合，它们在一起执行一个功能。  方法是解决一类问题的步骤的有序组合 方法包含于类或对象中 方法在程序中被创建，在其他地方被引用  方法包含一个方法头和一个方法体。下面是一个方法的所有部分：  修饰符：可选。告诉编译器如何调用该方法，定义了方法的类型 返回值类型：方法可能会返回值。返回值类型定义了方法的返回的值的类型。一些方法没有返回值，这种情况下返回值类型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png">
+<meta property="article:published_time" content="2021-03-11T02:50:16.000Z">
+<meta property="article:modified_time" content="2021-07-19T13:39:46.000Z">
+<meta property="article:author" content="Shenyan Wu">
+<meta property="article:tag" content="学习记录">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png"><link rel="shortcut icon" href="/Hexo_Blog/img/favicon.png"><link rel="canonical" href="https://shenyan-wu.github.io/posts/javalearn004/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Hexo_Blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/Hexo_Blog/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-19 21:39:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/transparency.css"><link rel="stylesheet" href="/css/indexfont.css"><link rel="stylesheet" href="/css/roller.css"><link rel="stylesheet" href="/css/colorfulcard.css"><link rel="stylesheet" href="/css/iconfont/iconfont.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/bb/showbb_in_index.css"><meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/Hexo_Blog/css/prism-tomorrow.css" type="text/css"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/Hexo_Blog/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/Hexo_Blog/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Hexo_Blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/Hexo_Blog/videos/"><i class="fa-fw fas fa-video"></i><span> Videos</span></a></li><li><a class="site-page" href="/Hexo_Blog/bangumis/"><i class="fa-fw fas fa-folder"></i><span> 追番收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/link/"><i class="fa-fw fas fa-address-book"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/comment/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/about/"><i class="fa-fw fas fa-address-book"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/subghost.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/Hexo_Blog/">ShenyanWu's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Hexo_Blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/Hexo_Blog/videos/"><i class="fa-fw fas fa-video"></i><span> Videos</span></a></li><li><a class="site-page" href="/Hexo_Blog/bangumis/"><i class="fa-fw fas fa-folder"></i><span> 追番收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/link/"><i class="fa-fw fas fa-address-book"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/comment/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/about/"><i class="fa-fw fas fa-address-book"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java入门学习记录（四）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-11T02:50:16.000Z" title="发表于 2021-03-11 10:50:16">2021-03-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-19T13:39:46.000Z" title="更新于 2021-07-19 21:39:46">2021-07-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="java"></p>
+<h2 id="方法详解">方法详解</h2>
+<h3 id="方法">方法</h3>
+<p>Java 方法是语句的集合，它们在一起执行一个功能。</p>
+<ul>
+<li>方法是解决一类问题的步骤的有序组合</li>
+<li>方法包含于类或对象中</li>
+<li>方法在程序中被创建，在其他地方被引用</li>
+</ul>
+<p><strong>方法包含一个方法头和一个方法体。下面是一个方法的所有部分：</strong></p>
+<ul>
+<li><strong>修饰符</strong>：可选。告诉编译器如何调用该方法，定义了方法的类型</li>
+<li><strong>返回值类型</strong>：方法可能会返回值。返回值类型定义了方法的返回的值的类型。一些方法没有返回值，这种情况下返回值类型关键字为<code>void</code></li>
+<li><strong>方法名</strong>：是方法的实际名称。方法名和参数表共同构成方法签名</li>
+<li><strong>参数类型</strong>：参数像一个占位符。当方法被调用时，传递值给参数。参数是可选的</li>
+<li><strong>方法体</strong>：方法具体包含的语句，定义了方法的功能</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名(参数类型<span class="number">1</span> 参数名<span class="number">1</span>, 参数类型<span class="number">2</span> 参数名<span class="number">2</span>, ...) {</span><br><span class="line">    ...</span><br><span class="line">    方法体</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> 返回值;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="方法重载">方法重载</h3>
+<p>重载就是在一个类中，有相同的函数名称，但形参不同的函数</p>
+<p><strong>重载规则</strong>：</p>
+<ul>
+<li>方法名称必须相同</li>
+<li>参数列表必须不同（如参数类型，顺序，数量等）</li>
+<li>方法的返回类型可以相同也可以不同</li>
+<li>仅仅返回类型不同不足以称为方法的重载</li>
+</ul>
+<h3 id="命令行传参">命令行传参</h3>
+<p>有时候你希望运行一个程序的时候再传递给它消息。这要靠传递命令行参数给 <code>main()</code> 函数实现</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">CommandLine</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; args.length; i++) {</span><br><span class="line">            System.out.println(<span class="string">"args["</span> + i + <span class="string">"]:"</span> + args[i]);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>注意在 cmd 命令行中运行需要找对路径</p>
+</blockquote>
+<h3 id="可变参数">可变参数</h3>
+<p>可变参数，也可以理解为不定项参数。</p>
+<p>在方法的声明中，在指定参数类型后面加一个省略号 (…)</p>
+<p>一个方法中只能指定一个可变参数，它必须是方法的最后一个参数。任何普通的参数必须在它之前声明</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span>... i)</span> </span>{</span><br><span class="line">        System.out.println(i[<span class="number">0</span>]); <span class="comment">// 本质上相当于数组</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Demo demo = <span class="keyword">new</span> Demo();</span><br><span class="line">        demo.test(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="递归详解">递归详解</h3>
+<p>递归通俗讲就是方法调用了自己，可以利用递归进行多次重复的计算，如计算阶乘</p>
+<p>递归结构包含两个部分：</p>
+<ul>
+<li>递归头：什么时候不调用自身方法。如果没有头，将称为死循环</li>
+<li>递归体：什么时候需要调用自身方法</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算阶乘</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo0</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) {</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        }<span class="keyword">else</span> {</span><br><span class="line">            <span class="keyword">return</span> n*f(n-<span class="number">1</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> factorial = f(<span class="number">5</span>);</span><br><span class="line">        System.out.println(factorial);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>参数基数比较小的可以使用递归，基数大的不建议使用，会产生内存占用过高或者栈溢出错误。递归是一种思想的学习，可以替换的话替换便是</p>
+</blockquote>
+<h2 id="数组详解">数组详解</h2>
+<h3 id="数组概述及声明创建">数组概述及声明创建</h3>
+<p>数组是相同类型数据的有序集。其中，每一个数据称作一个数组元素，每个元素可以通过一个下标来访问他们</p>
+<p>首先必须声明数组变量，才能在程序中使用数组。下面是声明数组变量的语法：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar; <span class="comment">// 建议使用</span></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">dataType arrayRefVar[];</span><br></pre></td></tr></tbody></table></figure>
+<p>Java 语言使用 <code>new</code> 操作符来创建数组：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar = <span class="keyword">new</span> dataType[arraysize];</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>数组元素通过索引访问，从 0 开始</p>
+<p>可以使用 array.length 获取数组的长度</p>
+</blockquote>
+<h3 id="内存分析">内存分析</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/Java%20%E5%86%85%E5%AD%98.png" alt=""></p>
+<p>比如声明数组 <code>int[] array = new int[10];</code> 分别存入 1-10 ，直观表示如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/%E5%A0%86%E6%A0%88.png" alt=""></p>
+<h3 id="数组初始化">数组初始化</h3>
+<ul>
+<li><strong>静态初始化</strong></li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};</span><br><span class="line">outclass[] mans = {<span class="keyword">new</span> outclass(<span class="number">1</span>, <span class="number">1</span>), <span class="keyword">new</span> outclass(<span class="number">2</span>, <span class="number">2</span>)}; <span class="comment">// 假设引用了类 outclass</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li><strong>动态初始化</strong></li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">a[<span class="number">2</span>] = <span class="number">3</span>;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>
+<p><strong>数组的默认初始化</strong></p>
+<p>数组是引用类型，它的元素相当于类的实例变量，因此数组一经分配空间，其中的每个元素也被按照实例变量同样的方式被隐式初始化（如 0 或 null）</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>数组长度确定，一旦被创建，大小不可改变</li>
+<li>元素类型必须相同</li>
+<li>元素可以是任何类型，包含基本类型和引用类型</li>
+<li>数组变量属于引用类型，数组也可以看成对象，数组元素相当于这个对象的成员变量</li>
+<li><strong>数组对象本身是在堆中的</strong></li>
+</ul>
+</blockquote>
+<h3 id="数组的使用">数组的使用</h3>
+<p>使用增强型 for 循环，适用于输出，不适用于对数组元素的操作，操作可以使用 for 循环</p>
+<p>数组作方法称为参数以及可以将数组作为返回值</p>
+<h3 id="多维数组">多维数组</h3>
+<p><strong>二维数组</strong>：相当于数组中的数组，通俗来说就是数组嵌套</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] array = {{<span class="number">1</span>, <span class="number">2</span>},{<span class="number">3</span>, <span class="number">4</span>},{<span class="number">5</span>, <span class="number">6</span>}}; <span class="comment">// [3][2] 3 行 2 列，访问元素与一维相似 array[0][0]</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>多维数组</strong>：如二维数组一般形式，多维数组的嵌套</p>
+<h3 id="Arrays-类讲解">Arrays 类讲解</h3>
+<p>数组的工具类 <code>java.util.Arrays</code> ，都是使用 <code>static</code> 修饰的静态方法</p>
+<p>该类包含用于数组的各种方法。具体详细内容可以参考 <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/">查看 JDK 帮助文档</a></p>
+<h3 id="冒泡排序">冒泡排序</h3>
+<p>冒泡排序算法作为最经典的一个排序算法之一，拿出来做个例子</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] sort(<span class="keyword">int</span>[] array) {</span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length-<span class="number">1</span>; i++) {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = (i+<span class="number">1</span>); j &lt; array.length ; j++) {</span><br><span class="line">                <span class="keyword">if</span> (array[i] &gt; array[j]){</span><br><span class="line">                    temp = array[i];</span><br><span class="line">                    array[i] = array[j];</span><br><span class="line">                    array[j] = temp;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span>[] arr = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">7</span>, <span class="number">5</span>};</span><br><span class="line">        System.out.println(Arrays.toString(sort(arr)));</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Shenyan Wu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://shenyan-wu.github.io/posts/javalearn004/">https://shenyan-wu.github.io/posts/javalearn004/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Shenyan-Wu.github.io" target="_blank">ShenyanWu's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/Hexo_Blog/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><a class="post-meta__tags" href="/Hexo_Blog/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/Hexo_Blog/img/reward/wechat.png" target="_blank"><img class="post-qr-code-img" src="/Hexo_Blog/img/reward/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/Hexo_Blog/img/reward/alipay.png" target="_blank"><img class="post-qr-code-img" src="/Hexo_Blog/img/reward/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Hexo_Blog/posts/javalearn005/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="onerror=null;src='/Hexo_Blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java入门学习记录（五）</div></div></a></div><div class="next-post pull-right"><a href="/Hexo_Blog/posts/javalearn003/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="onerror=null;src='/Hexo_Blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java入门学习记录（三）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-11</div><div class="title">Java入门学习记录（九）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn007/" title="Java入门学习记录（七）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-13</div><div class="title">Java入门学习记录（七）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn008/" title="Java入门学习记录（八）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-29</div><div class="title">Java入门学习记录（八）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-28</div><div class="title">Java入门学习记录（十）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn001/" title="Java入门学习记录（一）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-06</div><div class="title">Java入门学习记录（一）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-21</div><div class="title">Java入门学习记录（十一）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Shenyan Wu</div><div class="author-info__description">记录学习，记录生活</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/Hexo_Blog/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/Hexo_Blog/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Shenyan-Wu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Shenyan-Wu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:officialsyw@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_44730817?spm=1010.2135.3001.5343" target="_blank" title="CSDN"><i class="iconfont icon-csdn1"></i></a><a class="social-icon" href="http://sighttp.qq.com/authd?IDKEY=d3a93952ff42a0672292148c2b2a6b293a3f073491636155" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎访问本博客，大家有什么疑问可以一起交流研究哦，留言留下你的看法吧! <img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/announcement001.gif"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">方法详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD"><span class="toc-number">1.2.</span> <span class="toc-text">方法重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BC%A0%E5%8F%82"><span class="toc-number">1.3.</span> <span class="toc-text">命令行传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">可变参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.5.</span> <span class="toc-text">递归详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">数组详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%A6%82%E8%BF%B0%E5%8F%8A%E5%A3%B0%E6%98%8E%E5%88%9B%E5%BB%BA"><span class="toc-number">2.1.</span> <span class="toc-text">数组概述及声明创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90"><span class="toc-number">2.2.</span> <span class="toc-text">内存分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.3.</span> <span class="toc-text">数组初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">数组的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">2.5.</span> <span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrays-%E7%B1%BB%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.6.</span> <span class="toc-text">Arrays 类讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">2.7.</span> <span class="toc-text">冒泡排序</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/embeddedbackground.jpg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="总线协议概述"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述">总线协议概述</a><time datetime="2021-10-23T18:22:16.000Z" title="发表于 2021-10-24 02:22:16">2021-10-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ROS.jpeg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="ROS noetic 概述与环境搭建"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建">ROS noetic 概述与环境搭建</a><time datetime="2021-08-26T01:13:16.000Z" title="发表于 2021-08-26 09:13:16">2021-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十一）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）">Java入门学习记录（十一）</a><time datetime="2021-07-20T20:03:16.000Z" title="发表于 2021-07-21 04:03:16">2021-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）">Java入门学习记录（十）</a><time datetime="2021-05-28T01:13:16.000Z" title="发表于 2021-05-28 09:13:16">2021-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（九）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）">Java入门学习记录（九）</a><time datetime="2021-05-11T03:11:16.000Z" title="发表于 2021-05-11 11:11:16">2021-05-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Shenyan Wu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><br/> <img title="博客框架为Hexo" class="entered loading" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loading"> &nbsp;&nbsp; <img title="主题采用butterfly" class="entered loading" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loading" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站托管于Coding" class="entered loading" src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站项目由Gtihub托管" class="entered loading" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" class="entered loading" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loading"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/Hexo_Blog/js/utils.js"></script><script src="/Hexo_Blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/Hexo_Blog/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'kfGdJUEO2h5qKRHUtYkmpqWT-gzGzoHsz',
+      appKey: 'E8WATfvquN4qKeVpzo5inRIr',
+      placeholder: '有什么问题请留言给我吧！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/crash_cheat.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="Html,CSS,C++,Java,JavaScript,Python,Ruby,Clion,PyCharm,Intellij IDEA,Visual Studio Code" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/Hexo_Blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/Hexo_Blog/live2dw/assets/haruto.model.json"},"display":{"position":"letf","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

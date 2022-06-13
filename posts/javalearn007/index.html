@@ -1,0 +1,535 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java入门学习记录（七） | ShenyanWu's Blog</title><meta name="keywords" content="学习记录,Java"><meta name="author" content="Shenyan Wu"><meta name="copyright" content="Shenyan Wu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="内部类 内部类就是在一个类的内部再定义一个完整的类 12345class Outer {    class Inner {            }}   编译之后可生成独立的字节码文件 内部类可直接访问外部类的私有成员，而不破坏封装 可为外部类提供必要的内部功能组件   成员内部类 在类的内部定义，与实例变量、实例方法同级别的类 外部类的一个实例部分，创建内部类对象时，需要依赖外部类对象 12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java入门学习记录（七）">
+<meta property="og:url" content="https://shenyan-wu.github.io/posts/javalearn007/index.html">
+<meta property="og:site_name" content="ShenyanWu&#39;s Blog">
+<meta property="og:description" content="内部类 内部类就是在一个类的内部再定义一个完整的类 12345class Outer {    class Inner {            }}   编译之后可生成独立的字节码文件 内部类可直接访问外部类的私有成员，而不破坏封装 可为外部类提供必要的内部功能组件   成员内部类 在类的内部定义，与实例变量、实例方法同级别的类 外部类的一个实例部分，创建内部类对象时，需要依赖外部类对象 12">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png">
+<meta property="article:published_time" content="2021-04-12T18:22:16.000Z">
+<meta property="article:modified_time" content="2021-07-19T13:38:38.000Z">
+<meta property="article:author" content="Shenyan Wu">
+<meta property="article:tag" content="学习记录">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png"><link rel="shortcut icon" href="/Hexo_Blog/img/favicon.png"><link rel="canonical" href="https://shenyan-wu.github.io/posts/javalearn007/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Hexo_Blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/Hexo_Blog/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-19 21:38:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/transparency.css"><link rel="stylesheet" href="/css/indexfont.css"><link rel="stylesheet" href="/css/roller.css"><link rel="stylesheet" href="/css/colorfulcard.css"><link rel="stylesheet" href="/css/iconfont/iconfont.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/bb/showbb_in_index.css"><meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/Hexo_Blog/css/prism-tomorrow.css" type="text/css"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/Hexo_Blog/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/Hexo_Blog/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Hexo_Blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/Hexo_Blog/videos/"><i class="fa-fw fas fa-video"></i><span> Videos</span></a></li><li><a class="site-page" href="/Hexo_Blog/bangumis/"><i class="fa-fw fas fa-folder"></i><span> 追番收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/link/"><i class="fa-fw fas fa-address-book"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/comment/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/about/"><i class="fa-fw fas fa-address-book"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/subghost.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/Hexo_Blog/">ShenyanWu's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Hexo_Blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/Hexo_Blog/videos/"><i class="fa-fw fas fa-video"></i><span> Videos</span></a></li><li><a class="site-page" href="/Hexo_Blog/bangumis/"><i class="fa-fw fas fa-folder"></i><span> 追番收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/link/"><i class="fa-fw fas fa-address-book"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/comment/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/about/"><i class="fa-fw fas fa-address-book"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java入门学习记录（七）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-12T18:22:16.000Z" title="发表于 2021-04-13 02:22:16">2021-04-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-19T13:38:38.000Z" title="更新于 2021-07-19 21:38:38">2021-07-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt=""></p>
+<h2 id="内部类">内部类</h2>
+<p>内部类就是在一个类的内部再定义一个完整的类</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>{</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>{</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<ul>
+<li>编译之后可生成独立的字节码文件</li>
+<li>内部类可直接访问外部类的私有成员，而不破坏封装</li>
+<li>可为外部类提供必要的内部功能组件</li>
+</ul>
+</blockquote>
+<h3 id="成员内部类">成员内部类</h3>
+<p>在类的内部定义，与实例变量、实例方法同级别的类</p>
+<p>外部类的一个实例部分，创建内部类对象时，需要依赖外部类对象</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">// 创建外部类对象</span></span><br><span class="line">        Outer outer = <span class="keyword">new</span> Outer();</span><br><span class="line">        <span class="comment">// 创建内部类对象</span></span><br><span class="line">        Outer.Inner inner = outer.<span class="function">new <span class="title">Inner</span><span class="params">()</span></span>;</span><br><span class="line">        inner.method();</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>当外部类、内部类存在<strong>重名属性</strong>时，会优先访问内部类属性，若需要访问外部类属性，使用 <code>Outer.this.attribute</code></p>
+<p>成员内部类不能包含静态成员，但可以包含静态常量（内存分配会冲突）</p>
+<h3 id="静态内部类">静态内部类</h3>
+<p>不依赖外部类，可直接创建或通过类名访问，可声明静态成员</p>
+<p>可以在内部类前加 <code>static</code> 修饰，不依赖外部类，为外部类提供功能</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> String name = <span class="string">"张三"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number = <span class="number">110</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>{</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">private</span> String phone = <span class="string">"Apple"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>{</span><br><span class="line">            <span class="comment">// 调用外部类属性需要先创建外部类对象，因为静态内部类级别与外部类相同</span></span><br><span class="line">            Outer outer = <span class="keyword">new</span> Outer();</span><br><span class="line">            System.out.println(outer.name);</span><br><span class="line">            System.out.println(num);</span><br><span class="line">            System.out.println(outer.number);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>只有内部类才可 <code>static</code> 修饰 ，正常类不可</li>
+</ul>
+<h3 id="局部内部类">局部内部类</h3>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> String name = <span class="string">"张三"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> number = <span class="number">110</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method_1</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">// 局部变量</span></span><br><span class="line">        String address = <span class="string">"21313"</span>;</span><br><span class="line">        <span class="comment">// 局部内部类  不能加访问修饰符</span></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>{</span><br><span class="line">           <span class="keyword">private</span> String phone = <span class="string">"1555555555"</span>;</span><br><span class="line"></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method_2</span><span class="params">()</span> </span>{</span><br><span class="line">               System.out.println(Outer.<span class="keyword">this</span>.name); <span class="comment">// 访问外部类属性</span></span><br><span class="line">               System.out.println(<span class="keyword">this</span>.phone); <span class="comment">// 访问内部类属性</span></span><br><span class="line">               System.out.println(address); <span class="comment">// 访问局部变量，变量自动添加 final 成为常量，因为方法中变量会在运行后消失，只有常量才可以在局部内部类中引用</span></span><br><span class="line">           }</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 为了访问局部内部类里面的方法 2，需要在方法 1 中将内部类实例化</span></span><br><span class="line">        Inner inner = <span class="keyword">new</span> Inner();</span><br><span class="line">        inner.method_2();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="匿名内部类">匿名内部类</h3>
+<p>没有类名的局部内部类（特征与局部内部类相同）</p>
+<p>必须继承一个父类或者实现一个接口</p>
+<p>以实现接口为例，先创建一个名为 Inter 的接口，内部方法为 method</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Inter inter = <span class="keyword">new</span> Inter() {</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>{</span><br><span class="line">                System.out.println(<span class="string">"匿名内部类"</span>);</span><br><span class="line">            }</span><br><span class="line">        }; <span class="comment">// 注意后面的 ;</span></span><br><span class="line">        inter.method();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>通常创建一个局部内部类是有类名称的，而上述匿名内部类相当于创建了一个没有名字的局部内部类来实现了 Inter 接口，是一个语法合并的形式</p>
+<h2 id="Object-类">Object 类</h2>
+<p>所有类的直接或间接父类，在继承树的最顶层</p>
+<p>未表明 <code>extends</code> 关键字的类，都默认继承 Object 类，并拥有它所定义的方法</p>
+<h2 id="Object-类常用方法">Object 类常用方法</h2>
+<h3 id="getClass-方法">getClass 方法</h3>
+<p><code>public final Class&lt;?&gt; getClass() {}</code></p>
+<p>返回引用中存储的实际对象类型，通常用于判断两个引用中实际存储对象类型是否一致</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class <span class="class"><span class="keyword">class</span> </span>= object.getClass();</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="hashCode-方法">hashCode 方法</h3>
+<p><code>public int hashCode() {}</code></p>
+<p>返回该对象的哈希码</p>
+<p>哈希值根据对象地址或字符串或数字使用 hash 算法计算出来的 int 类型的数值</p>
+<p>一般情况下，相同对象返回相同的个哈希码值</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object.hashCode();</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="toString-方法">toString 方法</h3>
+<p><code>public String toString() {}</code></p>
+<p>返回该对象的字符串表示（表现形式）</p>
+<p>可以根据需求<strong>重写</strong>该方法，如：展示对象的各个属性</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.toString();</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="equals-方法">equals 方法</h3>
+<p><code>public boolean equals(Object obj) {}</code></p>
+<p>默认实现为（this == obj），比较两个对象地址是否相同</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj1.equals(obj2);</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>可以进行覆盖，比较两个对象的内容是否相同</p>
+<p>覆盖步骤：</p>
+<ul>
+<li>比较两个引用是否指向同一个对象</li>
+<li>判断 obj 是否为 null</li>
+<li>判断两个引用指向的实际对象类型是否一致</li>
+<li>强制类型转换</li>
+<li>依次比较各个属性值是否相同</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>{</span><br><span class="line">        <span class="comment">// 比较两个引用是否指向同一个对象</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span> == obj){</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 判断 obj 是否为 null</span></span><br><span class="line">        <span class="keyword">if</span>(obj == <span class="keyword">null</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 判断两个引用指向的实际对象类型是否一致</span></span><br><span class="line"><span class="comment">//        if(obj.getClass() == this.getClass()){</span></span><br><span class="line"><span class="comment">//        </span></span><br><span class="line"><span class="comment">//        }</span></span><br><span class="line">        <span class="keyword">if</span>(obj <span class="keyword">instanceof</span> OBJ){</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 强制类型转换</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 依次比较各个属性值是否相同</span></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    }</span><br><span class="line"><span class="comment">// 对象指向引用不同,内部属性来个相同的指向引用相同 ?</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="finalize-方法">finalize 方法</h3>
+<p>当对象被判定为垃圾对象时, 由 JVM 自动调用此方法,用以标记垃圾对象,进入回收队列</p>
+<p>垃圾对象: 没有有效引用指向此对象时, 为垃圾对象</p>
+<p>垃圾回收: 由 GC 销毁垃圾对象, 释放数据存储空间</p>
+<p>自动回收机制: JVM 的内存耗尽, 一次性回收所有的垃圾对象</p>
+<p>手动回收机制: 使用 <code>System.gc()</code> ; 通知 JVM 执行垃圾回收</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ClassName classobj = <span class="keyword">new</span> ClassName();	<span class="comment">// 不回收</span></span><br><span class="line"><span class="keyword">new</span> ClassName();                     	<span class="comment">// 回收</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="包装类">包装类</h2>
+<p>基本数据类型所对应的引用数据类型</p>
+<p>Object 可统一所有数据，包装类的默认值是 null</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">基本数据类型</th>
+<th style="text-align:center">包装类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">Byte</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">Short</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">Integer</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">Long</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">Float</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">Double</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">Boolean</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">Character</td>
+</tr>
+</tbody>
+</table>
+<h3 id="装箱和拆箱">装箱和拆箱</h3>
+<p>装箱就是把基本类型从栈中放入堆中转换成引用类型，反之就是拆箱，如上包装类</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    <span class="comment">// JDK 1.5 之前</span></span><br><span class="line">    <span class="comment">// 基本类型</span></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 装箱，使用 Integer 类创建对象</span></span><br><span class="line">    Integer integer1 = <span class="keyword">new</span> Integer(num);</span><br><span class="line">    Integer integer2 = <span class="keyword">new</span> Integer.valueOf(num);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 拆箱，引用类型转换基本类型</span></span><br><span class="line">    Integer integer3 = <span class="keyword">new</span> Integer(<span class="number">100</span>);</span><br><span class="line">    <span class="keyword">int</span> num1 = integer3.intValue();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// JDK 1.5之后提供自动装箱和拆箱</span></span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">30</span>;</span><br><span class="line">    <span class="comment">// 装箱 自动装箱相当于引用了 valueOf()</span></span><br><span class="line">    Integer integer4 = age;</span><br><span class="line">    <span class="comment">// 拆箱 自动拆箱相当于引用了 .intValue()</span></span><br><span class="line">    <span class="keyword">int</span> age1 = integer4;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="基本类型和字符串转换">基本类型和字符串转换</h3>
+<p>8 种包装类提供不同类型间的转换方式：</p>
+<ul>
+<li>Number 父类中提供的 6 个共性方法</li>
+<li>parseXXX() 静态方法</li>
+</ul>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本类型转换字符串</span></span><br><span class="line"><span class="comment">// 1. 使用 + 号</span></span><br><span class="line"><span class="keyword">int</span> num = <span class="number">255</span>;</span><br><span class="line">String s = num + <span class="string">""</span>;</span><br><span class="line"><span class="comment">// 2. 使用 Integer 的 toString() 方法</span></span><br><span class="line">String s1 = Integer.toString(num);</span><br><span class="line"><span class="comment">// 使用 Integer 的 toString() 方法的进制重载</span></span><br><span class="line">String s2 = Integer.toString(num, <span class="number">16</span>); <span class="comment">// 16进制 Output : ff</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串转换基本类型</span></span><br><span class="line">String str = <span class="string">"150"</span>;</span><br><span class="line"><span class="comment">// 使用 Integer 的 parseXXX() 方法</span></span><br><span class="line"><span class="keyword">int</span> num1 = Integer.parseInt(str); <span class="comment">// 在转换基本类型时注意不要出现非数字</span></span><br><span class="line"><span class="comment">// Boolean 字符串形式转换基本类型只有 "true" 转换成 true, 非 "true" 全都转换成 false</span></span><br><span class="line">String str1 = <span class="string">"true"</span>;</span><br><span class="line"><span class="keyword">boolean</span> b1 = Boolean.parseBoolean(str1);</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="Integer-缓冲区">Integer 缓冲区</h3>
+<p>Java 预先创建了 256 个常用的整数包装类型对象</p>
+<blockquote>
+<p>在实际应用当中，对已创建对象进行复用，以节省内存</p>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Integer integer1 = <span class="keyword">new</span> Integer(<span class="number">100</span>);</span><br><span class="line">Integer integer2 = <span class="keyword">new</span> Integer(<span class="number">100</span>);</span><br><span class="line">System.out.println(integer1 == integer2); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">Integer integer3 = <span class="number">100</span>; <span class="comment">// 自动装箱 相当于引用了 valueOf()</span></span><br><span class="line">Integer integer4 = <span class="number">100</span>;</span><br><span class="line">System.out.println(integer3 == integer4); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">Integer integer5 = <span class="number">200</span>; <span class="comment">// 自动装箱 相当于引用了 valueOf()</span></span><br><span class="line">Integer integer6 = <span class="number">200</span>;</span><br><span class="line">System.out.println(integer5 == integer6); <span class="comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
+<p>这是因为自动装箱的 valueOf() 方法所导致的，详细查看 valueOf()  源码，Integer 范围为 -128 ~ 127，200 超过了范围，直接在堆中开辟，false，与内存有关（Cache 数组）</p>
+<h2 id="String-类">String 类</h2>
+<p>字符串是常量，创建之后不可改变，修改相当于重写开辟空间，不会修改原来的数据</p>
+<p>字符串字面值存储在字符串池中，可以<strong>共享</strong></p>
+<p>String 比较使用 equals ，在 String 中重写了 equals ，此时比较的不是对象的地址，而是字符串的值</p>
+<h3 id="常用方法">常用方法</h3>
+<ul>
+<li>
+<p>public int length() 返回字符串的长度</p>
+</li>
+<li>
+<p>public char charAt(int index) 返回某个位置的字符</p>
+</li>
+<li>
+<p>public boolean contains(String str) 判断是否包含某个子字符串</p>
+</li>
+<li>
+<p>public char[] toCharArray() 将字符串转换成数组</p>
+</li>
+<li>
+<p>public int indexOf(String str) 查找 str 首次出现的下标，存在，则返回该下标；不存在。则返回 -1</p>
+</li>
+<li>
+<p>public int lastIndexOf(String str) 查找 str 在当前字符串中最后一次出现的下标索引</p>
+</li>
+<li>
+<p>public String trim() 去掉字符串前后的空格，即开头到字符串和结尾之后的字符串，中间的不算</p>
+</li>
+<li>
+<p>public String toUpperCase() 将小写转成大写</p>
+</li>
+</ul>
+<p>​					           toLowerCase() 将大写转成小写</p>
+<ul>
+<li>public boolean endsWith(String str) 判断字符串是否以 str 结尾</li>
+</ul>
+<p>​						           startsWith(String str) 判断字符串是否以 str 开头</p>
+<ul>
+<li>
+<p>public String replace(char oldChar, char newChar) 将旧字符串替换成新字符串</p>
+</li>
+<li>
+<p>public String[] split(String str) 根据 str 做拆分</p>
+</li>
+</ul>
+<blockquote>
+<p>补充个字符串位置比较方法 <code>compareTo(str)</code></p>
+<p>若字符串首字符相同，则比较第二个，逐次比较相减，若前一个字符串和第二个子字符串都相同，则比较其长度，长度相减</p>
+<p>还有 <code>equalsIgnoreCase(str)</code> 忽略大小写比较值</p>
+</blockquote>
+<h3 id="StringBuffer-和-StringBuilder">StringBuffer 和 StringBuilder</h3>
+<p>StringBuffer    可变长字符串，JDK 1.0 提供，运行效率慢、线程安全</p>
+<p>StringBuilder   可变长字符串，JDK 5.0 提供，运行效率快、线程不安全</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        StringBuffer sb = <span class="keyword">new</span> StringBuffer(); <span class="comment">// StringBuilder 和 StringBuffer 是相同的使用方式</span></span><br><span class="line">        <span class="comment">// append() 追加</span></span><br><span class="line">        sb.append(<span class="string">"java is nice language"</span>);</span><br><span class="line">        System.out.println(sb);</span><br><span class="line">        sb.append(<span class="string">"python life"</span>);</span><br><span class="line">        System.out.println(sb);</span><br><span class="line">        <span class="comment">// insert() 添加</span></span><br><span class="line">        sb.insert(<span class="number">0</span>, <span class="string">"在最前面插入字"</span>);</span><br><span class="line">        System.out.println(sb);</span><br><span class="line">        <span class="comment">// replace() 替换</span></span><br><span class="line">        sb.replace(<span class="number">0</span>, <span class="number">5</span>, <span class="string">"hello"</span>);</span><br><span class="line">        System.out.println(sb);</span><br><span class="line">        <span class="comment">// delete() 删除</span></span><br><span class="line">        sb.delete(<span class="number">0</span>, <span class="number">5</span>);</span><br><span class="line">        System.out.println(sb);</span><br><span class="line">        <span class="comment">// 清空 delete</span></span><br><span class="line">        sb.delete(<span class="number">0</span>, sb.length());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/1.png" alt=""></p>
+<h2 id="BigDecimal-类">BigDecimal 类</h2>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">double</span> d1 = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">double</span> d2 = <span class="number">0.9</span>;</span><br><span class="line">        System.out.println(d1 - d2);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>思考输出结果，为 <code>0.09999999999999998</code></p>
+<blockquote>
+<p>因为精度问题，在 Java 中 double 属于近似值存储，精确计算时，使用类 <code>BigDecimal</code></p>
+</blockquote>
+<p><strong>BigDecimal 类</strong> 位于 <code>java.math</code> 中 ，用于精确计算浮点数</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">// BigDecimal</span></span><br><span class="line">        BigDecimal bigDecimal1 = <span class="keyword">new</span> BigDecimal(<span class="string">"1.0"</span>); <span class="comment">// 注意使用构造体参数为字符串</span></span><br><span class="line">        BigDecimal bigDecimal2 = <span class="keyword">new</span> BigDecimal(<span class="string">"0.9"</span>);</span><br><span class="line">        BigDecimal answer = bigDecimal1.subtract(bigDecimal2);</span><br><span class="line">        System.out.println(answer);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<ul>
+<li>注意使用构造体参数为字符串</li>
+<li>与减法相同，加法为 add() 方法，其他的方法可以参考说明文档</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">// 关于除法除不尽报错，需要给出保留小数的位数和具体的舍去方式</span></span><br><span class="line">        <span class="comment">// divide(BigDecimal bd, int scale, RoundingMode mode)</span></span><br><span class="line">        BigDecimal result = <span class="keyword">new</span> BigDecimal(<span class="string">"10"</span>).divide(<span class="keyword">new</span> BigDecimal(<span class="string">"3"</span>), <span class="number">5</span>, BigDecimal.ROUND_HALF_UP); <span class="comment">// 10 除以 3，保留 5 位小数，采用四舍五入</span></span><br><span class="line">        System.out.println(result); <span class="comment">// OutPut : 3.33333</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Date-类">Date 类</h2>
+<p>Date 表示特定的瞬间，精确到<strong>毫秒</strong>。Date 类中的大部分方法都已经被 Calendar 类中的方法所取代</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo3</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        System.out.println(date.toString()); <span class="comment">// Tue Apr 13 01:02:17 CST 2021</span></span><br><span class="line">        System.out.println(date.toLocaleString()); <span class="comment">// Apr 13, 2021 1:02:17 AM</span></span><br><span class="line"></span><br><span class="line">        Date date1 = <span class="keyword">new</span> Date(date.getTime()-(<span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>*<span class="number">1000</span>));</span><br><span class="line">        System.out.println(date1.toLocaleString()); <span class="comment">// Apr 12, 2021 1:02:17 AM</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法 after() before()</span></span><br><span class="line">        <span class="keyword">boolean</span> b = date.after(date1);</span><br><span class="line">        System.out.println(b); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法 compareTo()</span></span><br><span class="line">        <span class="keyword">int</span> d = date.compareTo(date1); <span class="comment">// date - date1 即今天减去昨天，正为 1，负为 0</span></span><br><span class="line">        System.out.println(d); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法 equals()</span></span><br><span class="line">        <span class="keyword">boolean</span> b1 = date.equals(date1);</span><br><span class="line">        System.out.println(b1); <span class="comment">// false</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Calendar-类">Calendar 类</h2>
+<p><strong>Calendar 类</strong> 提供了获取或设置各种日历字段的方法</p>
+<p>构造方法：<code>protected Calendar()</code> 由于修饰符是 <code>protected</code> ，所以无法直接创建该对象</p>
+<p>其他方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">static Calendar getInstance()</td>
+<td style="text-align:center">使用默认时区和区域获取日历</td>
+</tr>
+<tr>
+<td style="text-align:center">void set(int year, int month, int date, int hourofday, int minute, int second)</td>
+<td style="text-align:center">设置日历的年、月、日、时、分、秒</td>
+</tr>
+<tr>
+<td style="text-align:center">int get(int field)</td>
+<td style="text-align:center">返回给定日历字段的值。如：年、月、日</td>
+</tr>
+<tr>
+<td style="text-align:center">void set(Date date)</td>
+<td style="text-align:center">用给定的Date设置此日历的时间</td>
+</tr>
+<tr>
+<td style="text-align:center">Date getTime()</td>
+<td style="text-align:center">返回一个Date表示此日历的时间</td>
+</tr>
+<tr>
+<td style="text-align:center">void add(int field, int amount)</td>
+<td style="text-align:center">按照日历的规则，给指定字段添加或减少时间量</td>
+</tr>
+<tr>
+<td style="text-align:center">long getTimeMillies()</td>
+<td style="text-align:center">毫秒为单位返回该日历的时间值</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Calendar;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">// 创建 Calendar 对象</span></span><br><span class="line">        Calendar calendar = Calendar.getInstance();</span><br><span class="line">        System.out.println(calendar.getTime().toLocaleString());</span><br><span class="line">        System.out.println(calendar.getTimeInMillis());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取时间信息</span></span><br><span class="line">        <span class="comment">// 年</span></span><br><span class="line">        <span class="keyword">int</span> year = calendar.get(Calendar.YEAR);</span><br><span class="line">        <span class="comment">// 月</span></span><br><span class="line">        <span class="keyword">int</span> month = calendar.get(Calendar.MONTH);</span><br><span class="line">        <span class="comment">// 日</span></span><br><span class="line">        <span class="keyword">int</span> day = calendar.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">        <span class="comment">// 时</span></span><br><span class="line">        <span class="keyword">int</span> hour = calendar.get(Calendar.HOUR_OF_DAY);</span><br><span class="line">        <span class="comment">// 分</span></span><br><span class="line">        <span class="keyword">int</span> minute = calendar.get(Calendar.MINUTE);</span><br><span class="line">        <span class="comment">// 秒</span></span><br><span class="line">        <span class="keyword">int</span> second = calendar.get(Calendar.SECOND);</span><br><span class="line">        System.out.println(year+<span class="string">"年"</span>+(month+<span class="number">1</span>)+<span class="string">"月"</span>+day+<span class="string">"日"</span>+hour+<span class="string">"时"</span>+minute+<span class="string">"分"</span>+second+<span class="string">"秒"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// set() 方法修改时间</span></span><br><span class="line">        calendar.set(Calendar.DAY_OF_MONTH, <span class="number">5</span>); <span class="comment">// set 修改时间</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// add() 方法修改时间</span></span><br><span class="line">        calendar.add(Calendar.HOUR, <span class="number">1</span>); <span class="comment">// 当前时间加 1 小时</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 补充方法</span></span><br><span class="line">        <span class="keyword">int</span> max = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);</span><br><span class="line">        <span class="keyword">int</span> min = calendar.getActualMinimum(Calendar.DAY_OF_MONTH);</span><br><span class="line">        System.out.println(max); <span class="comment">// 30</span></span><br><span class="line">        System.out.println(min); <span class="comment">// 1</span></span><br><span class="line">        <span class="comment">// 这里我是 4 月份，5 月的话是 31  1</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/2.png" alt=""></p>
+<h2 id="SimpleDateFormat-类">SimpleDateFormat 类</h2>
+<p><strong>SimpleDateFormat 类</strong> 是一个以与语言环境有关的方式来格式化和解析日期的具体类</p>
+<p>进行格式化（日期 -&gt; 文本）、解析（文本 -&gt; 日期）</p>
+<p>常用的时间模式字母</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字母</th>
+<th style="text-align:center">时间或日期</th>
+<th style="text-align:center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:center">年</td>
+<td style="text-align:center">2021</td>
+</tr>
+<tr>
+<td style="text-align:center">M</td>
+<td style="text-align:center">年中月份</td>
+<td style="text-align:center">04</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:center">月中天数</td>
+<td style="text-align:center">13</td>
+</tr>
+<tr>
+<td style="text-align:center">H</td>
+<td style="text-align:center">1 天中小时数（0 - 23）</td>
+<td style="text-align:center">01</td>
+</tr>
+<tr>
+<td style="text-align:center">m</td>
+<td style="text-align:center">分钟</td>
+<td style="text-align:center">41</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:center">秒</td>
+<td style="text-align:center">58</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:center">毫秒</td>
+<td style="text-align:center">365</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>{</span><br><span class="line">        <span class="comment">// 创建 SimpleDateFormat 对象， y 年 M 月</span></span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">        <span class="comment">// 创建 Date</span></span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        <span class="comment">// 格式化 date</span></span><br><span class="line">        String str = sdf.format(date);</span><br><span class="line">        System.out.println(str);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 解析（把字符串转成日期）</span></span><br><span class="line">        Date date1 = sdf.parse(<span class="string">"2021年04月13日"</span>); <span class="comment">// 使用时需要和前后日期格式一致，否则出现异常</span></span><br><span class="line">        System.out.println(date1);</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="System-类">System 类</h2>
+<p><strong>System 类</strong> 主要用于获取系统的属性数据和其他操作，构造方法私有</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">static void arraycopy(…)</td>
+<td style="text-align:center">复制数组</td>
+</tr>
+<tr>
+<td style="text-align:center">static long currentTimeMillis()</td>
+<td style="text-align:center">获取当前系统时间，返回的时毫秒值</td>
+</tr>
+<tr>
+<td style="text-align:center">static void gc()</td>
+<td style="text-align:center">建议 JVM 启动垃圾回收器回收垃圾</td>
+</tr>
+<tr>
+<td style="text-align:center">static void exit(int status)</td>
+<td style="text-align:center">退出 JVM，参数为 0 表示正常退出，非 0 表示异常退出</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">// src 源数组，srcPos 从哪个位置开始复制，dest 目标数组，destPos 目标数组的放置位置，length 复制的长度</span></span><br><span class="line">        <span class="keyword">int</span>[] src = {<span class="number">20</span>, <span class="number">19</span>, <span class="number">18</span>, <span class="number">17</span>, <span class="number">16</span>, <span class="number">15</span>, <span class="number">14</span>, <span class="number">13</span>};</span><br><span class="line">        <span class="keyword">int</span>[] dest = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">8</span>];</span><br><span class="line">        System.arraycopy(src, <span class="number">0</span>, dest, <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> arr: dest) {</span><br><span class="line">            System.out.println(arr);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        System.out.println(System.currentTimeMillis()); <span class="comment">// 获取系统当前时间，可以用来计算执行程序用时 ms，开始 - 结束</span></span><br><span class="line"></span><br><span class="line">        System.gc(); <span class="comment">// 垃圾回收，在另一个类中重写 finalize() 方法，显示是否回收，当没有对象引用可能就会被回收</span></span><br><span class="line"></span><br><span class="line">        System.exit(<span class="number">0</span>);</span><br><span class="line">        System.out.println(<span class="string">"这里不会打印出来，因为上一步已经退出结束了！！！"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Shenyan Wu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://shenyan-wu.github.io/posts/javalearn007/">https://shenyan-wu.github.io/posts/javalearn007/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Shenyan-Wu.github.io" target="_blank">ShenyanWu's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/Hexo_Blog/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a><a class="post-meta__tags" href="/Hexo_Blog/tags/Java/">Java</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/Hexo_Blog/img/reward/wechat.png" target="_blank"><img class="post-qr-code-img" src="/Hexo_Blog/img/reward/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/Hexo_Blog/img/reward/alipay.png" target="_blank"><img class="post-qr-code-img" src="/Hexo_Blog/img/reward/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Hexo_Blog/posts/labview001/"><img class="prev-cover" src="http://r.photo.store.qq.com/psc?/V54SMeuj1XXnuT26KikT07cxqH392Yd2/45NBuzDIW489QBoVep5mcWHC2Iq*FV*mCenJLngKGsMRnl9ZCCHVlIOjncgUz7SXEN52NgWeITJsptRwtwOe*vWGzj03GG9v5SEZC98x0Tc!/r" onerror="onerror=null;src='/Hexo_Blog/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">FlappyBird (基于 LabVIEW) 的保姆级教程</div></div></a></div><div class="next-post pull-right"><a href="/Hexo_Blog/posts/javalearn006/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="onerror=null;src='/Hexo_Blog/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java入门学习记录（六）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-11</div><div class="title">Java入门学习记录（九）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn008/" title="Java入门学习记录（八）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-29</div><div class="title">Java入门学习记录（八）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-28</div><div class="title">Java入门学习记录（十）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn001/" title="Java入门学习记录（一）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-06</div><div class="title">Java入门学习记录（一）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-21</div><div class="title">Java入门学习记录（十一）</div></div></a></div><div><a href="/Hexo_Blog/posts/javalearn003/" title="Java入门学习记录（三）"><img class="cover" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-07</div><div class="title">Java入门学习记录（三）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Shenyan Wu</div><div class="author-info__description">记录学习，记录生活</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/Hexo_Blog/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/Hexo_Blog/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Shenyan-Wu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Shenyan-Wu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:officialsyw@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_44730817?spm=1010.2135.3001.5343" target="_blank" title="CSDN"><i class="iconfont icon-csdn1"></i></a><a class="social-icon" href="http://sighttp.qq.com/authd?IDKEY=d3a93952ff42a0672292148c2b2a6b293a3f073491636155" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎访问本博客，大家有什么疑问可以一起交流研究哦，留言留下你的看法吧! <img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/announcement001.gif"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">内部类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%91%98%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">成员内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">静态内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.3.</span> <span class="toc-text">局部内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text">匿名内部类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">Object 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">Object 类常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getClass-%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">getClass 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hashCode-%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">hashCode 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toString-%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">toString 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equals-%E6%96%B9%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text">equals 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finalize-%E6%96%B9%E6%B3%95"><span class="toc-number">3.5.</span> <span class="toc-text">finalize 方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text">包装类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%85%E7%AE%B1%E5%92%8C%E6%8B%86%E7%AE%B1"><span class="toc-number">4.1.</span> <span class="toc-text">装箱和拆箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.2.</span> <span class="toc-text">基本类型和字符串转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Integer-%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-number">4.3.</span> <span class="toc-text">Integer 缓冲区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">String 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#StringBuffer-%E5%92%8C-StringBuilder"><span class="toc-number">5.2.</span> <span class="toc-text">StringBuffer 和 StringBuilder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BigDecimal-%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">BigDecimal 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date-%E7%B1%BB"><span class="toc-number">7.</span> <span class="toc-text">Date 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Calendar-%E7%B1%BB"><span class="toc-number">8.</span> <span class="toc-text">Calendar 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SimpleDateFormat-%E7%B1%BB"><span class="toc-number">9.</span> <span class="toc-text">SimpleDateFormat 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#System-%E7%B1%BB"><span class="toc-number">10.</span> <span class="toc-text">System 类</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/embeddedbackground.jpg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="总线协议概述"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述">总线协议概述</a><time datetime="2021-10-23T18:22:16.000Z" title="发表于 2021-10-24 02:22:16">2021-10-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ROS.jpeg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="ROS noetic 概述与环境搭建"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建">ROS noetic 概述与环境搭建</a><time datetime="2021-08-26T01:13:16.000Z" title="发表于 2021-08-26 09:13:16">2021-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十一）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）">Java入门学习记录（十一）</a><time datetime="2021-07-20T20:03:16.000Z" title="发表于 2021-07-21 04:03:16">2021-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）">Java入门学习记录（十）</a><time datetime="2021-05-28T01:13:16.000Z" title="发表于 2021-05-28 09:13:16">2021-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（九）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）">Java入门学习记录（九）</a><time datetime="2021-05-11T03:11:16.000Z" title="发表于 2021-05-11 11:11:16">2021-05-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Shenyan Wu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><br/> <img title="博客框架为Hexo" class="entered loading" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loading"> &nbsp;&nbsp; <img title="主题采用butterfly" class="entered loading" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loading" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站托管于Coding" class="entered loading" src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站项目由Gtihub托管" class="entered loading" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" class="entered loading" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loading"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/Hexo_Blog/js/utils.js"></script><script src="/Hexo_Blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/Hexo_Blog/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'kfGdJUEO2h5qKRHUtYkmpqWT-gzGzoHsz',
+      appKey: 'E8WATfvquN4qKeVpzo5inRIr',
+      placeholder: '有什么问题请留言给我吧！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/crash_cheat.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="Html,CSS,C++,Java,JavaScript,Python,Ruby,Clion,PyCharm,Intellij IDEA,Visual Studio Code" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/Hexo_Blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/Hexo_Blog/live2dw/assets/haruto.model.json"},"display":{"position":"letf","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>

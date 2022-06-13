@@ -1,0 +1,19 @@
+/* #web_bg {
+  background-color: #f19688;
+  background-image: linear-gradient(19deg, #f19688 0%, #debfbc 50%, #fffad8 100%);
+} */
+/* 透明渐变卡片 */
+#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {
+    /* background: var(--light_bg_color) */
+    background: rgba(255,255,255,.5);
+}
+
+#aside-content .card-widget {
+    /* background: var(--light_bg_color) */
+    background: rgba(255,255,255,.5);
+}
+
+#web_bg {
+  background-color: #f19688;
+  background-image: linear-gradient(19deg, #f19688 0%, #debfbc 50%, #fffad8 100%);
+}

@@ -1,0 +1,405 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ShenyanWu's Blog</title><meta name="author" content="Shenyan Wu"><meta name="copyright" content="Shenyan Wu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="ShenyanWu&#39;s Blog">
+<meta property="og:url" content="https://shenyan-wu.github.io/index.html">
+<meta property="og:site_name" content="ShenyanWu&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png">
+<meta property="article:author" content="Shenyan Wu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png"><link rel="shortcut icon" href="/Hexo_Blog/img/favicon.png"><link rel="canonical" href="https://shenyan-wu.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Hexo_Blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/Hexo_Blog/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-06-13 13:46:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><link rel="stylesheet" href="APlayer.min.css"><div id="aplayer"></div><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" async></script><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="/css/transparency.css"><link rel="stylesheet" href="/css/indexfont.css"><link rel="stylesheet" href="/css/roller.css"><link rel="stylesheet" href="/css/colorfulcard.css"><link rel="stylesheet" href="/css/iconfont/iconfont.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/bb/showbb_in_index.css"><meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/Hexo_Blog/css/prism-tomorrow.css" type="text/css"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/Hexo_Blog/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/Hexo_Blog/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Hexo_Blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/Hexo_Blog/videos/"><i class="fa-fw fas fa-video"></i><span> Videos</span></a></li><li><a class="site-page" href="/Hexo_Blog/bangumis/"><i class="fa-fw fas fa-folder"></i><span> 追番收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/link/"><i class="fa-fw fas fa-address-book"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/comment/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/about/"><i class="fa-fw fas fa-address-book"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ghost.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/Hexo_Blog/">ShenyanWu's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Hexo_Blog/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/Hexo_Blog/videos/"><i class="fa-fw fas fa-video"></i><span> Videos</span></a></li><li><a class="site-page" href="/Hexo_Blog/bangumis/"><i class="fa-fw fas fa-folder"></i><span> 追番收藏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/link/"><i class="fa-fw fas fa-address-book"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/Hexo_Blog/comment/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 关于我</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/Hexo_Blog/about/"><i class="fa-fw fas fa-address-book"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ShenyanWu's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Shenyan-Wu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:officialsyw@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_44730817?spm=1010.2135.3001.5343" target="_blank" title="CSDN"><i class="iconfont icon-csdn1"></i></a><a class="social-icon" href="http://sighttp.qq.com/authd?IDKEY=d3a93952ff42a0672292148c2b2a6b293a3f073491636155" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/embeddedbackground.jpg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="总线协议概述"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述">总线协议概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-23T18:22:16.000Z" title="发表于 2021-10-24 02:22:16">2021-10-24</time></span></div><div class="content">
+本文对最近了解的一些协议进行一下简单的概述，方便以后查阅。
+UART、I2C、SPI、TTL、RS232、RS422、RS485、CAN、USB、SD卡、1-WIRE、Ethernet
+UART通用异步收发器
+通常说的串口，UART包含TTL电平和RS-232电平两种，嵌入式系统里面，单片机的串口一般都是TTL电平。
+先说明一下单工通信与双工通信。
+单工
+
+全双工
+
+半双工
+
+
+UART，（Universal Asynchronous Receiver Transmitter）即通用异步收发器。是一种通用的串行、异步通信总线。该总线有两条数据线，可以实现全双工的发送和接收。在嵌入式系统中常用于主机与辅助设备之间的通信。
+有两根线，一根TXD用于发送，一根RXD用于接收。
+如果用通用IO口模拟UART总线，则需一个输入口，一个输出口。
+
+协议时序图（帧数据格式）也可以称之为UART协议，单片机与PC之间的通信，为了保证数据通信的可靠性，双方都必须遵从UART协议。
+
+其中各位的含义如下：
+
+
+起始位：发送1位逻辑0（低电平），开始传输数据。
+
+
+数据位：可以是5~8位的数据，先发低位， ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ROS.jpeg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="ROS noetic 概述与环境搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建">ROS noetic 概述与环境搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-26T01:13:16.000Z" title="发表于 2021-08-26 09:13:16">2021-08-26</time></span></div><div class="content">
+  ad1ef09459cefedfa82485b9c46db25fcdf8c25fee5087fbf12ddc3a023accb355751c5c9976bc655496c7bed582f98f7dbeb51cd6e32b9da812480b4bebc1e92a711528945b1a78b310738b3982d92a1726be3b81cd5f6b4e914f7eefce718b8eaf682ddcca7fa8e2736140c217e460e3d19c02117bd20b8eec5dce481b10a11b46255228554a4717580af9de7f604a4e1a30c04fac7b0e40a0275936969a562469e75e2f3a3f0d9b6b2aaaf9c7154f8f90bc4fc05f69942945efee6473696330fb21ecf655e4da7c5500eba10ab4c45711033feabcf4118e6dcc06a058d7c92f610c8cef6deca388879bbc2875e0459cc02994bdafca672 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十一）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）">Java入门学习记录（十一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-20T20:03:16.000Z" title="发表于 2021-07-21 04:03:16">2021-07-21</time></span></div><div class="content">
+IP地址
+12345678910111213141516171819202122232425262728293031import java.net.InetAddress;import java.net.UnknownHostException;public class TestInetAddress {    public static void main(String[] args) {        try {            // 查询本机地址            InetAddress byName = InetAddress.getByName("127.0.0.1");            System.out.println(byName);            InetAddress byName1 = InetAddress.getByName("localhost");            System.out.println(byName1);            InetAddress byName2 = InetAddress.getLoc ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）">Java入门学习记录（十）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-28T01:13:16.000Z" title="发表于 2021-05-28 09:13:16">2021-05-28</time></span></div><div class="content">
+多线程
+普通方法调用和多线程
+
+Process &amp; Thread
+
+程序，是指令和数据的有序集合，其本身没有任何运行的含义，是一个静态的概念
+进程，是执行程序的一次执行过程，是一个动态的概念。是系统资源分配的单位
+通常在一个进程中可以包含若干的线程，当然一个进程中至少有一个线程，不然没有存在的意义。线程是 CPU 调度和执行的单位
+
+
+很多多线程是模拟出来的，真正的多线程是指有多个 CPU（多核）。如果是模拟出来的多线程，在一个 CPU 的情况下，只能同时执行一条代码，只是因为执行的速度很快，才有同时执行的感觉
+
+线程的创建
+创建方式
+
+Thread *
+
+自定义线程类继承 Thread 类
+重写 run() 方法，编写线程执行体
+创建线程对象，调用 start() 方法执行线程
+
+123456789101112131415161718public class Demo extends Thread{    @Override    public void run() {        // run 多线程体        for (int i = 0; i &lt; 200 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（九）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）">Java入门学习记录（九）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-11T03:11:16.000Z" title="发表于 2021-05-11 11:11:16">2021-05-11</time></span></div><div class="content">
+I/O 框架
+什么是流
+内存与存储设备之间传输数据的通道
+
+流的分类
+按方向 *
+输入流：将 存储设备中的内容读入到 内存 中
+输出流：将 内存中的内容写入到 存储设备 中
+按单位
+字节流：以字节为单位，可以读写所有数据
+字符流：以字符为单位，只能读写文本数据
+按功能
+节点流：具有实际传输数据的读写功能
+过滤流：在节点流的基础之上增强功能
+字节流
+字节流的父类（抽象类）：
+InputStream：字节输入流
+
+
+public int read()
+
+
+public int read(byte[] b)
+
+
+public int read(byte[] b, int off, int len)
+
+
+OutputStream：字节输出流
+
+
+public void write(int n)
+
+
+public void write(byte[] b)
+
+
+public void write(byte[] b, int off, int len)
+
+
+文件字节流
+FileInputStream
+
+public int read(byte[] b)    // 从流中读取多个字节，将读到内容存 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Hexo_Blog/posts/javalearn008/" title="Java入门学习记录（八）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（八）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn008/" title="Java入门学习记录（八）">Java入门学习记录（八）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-29T01:13:16.000Z" title="发表于 2021-04-29 09:13:16">2021-04-29</time></span></div><div class="content">
+集合的概念
+集合就是对象的容器，定义了对多个对象进行操作的常用方法。可实现数组的功能
+与数组的区别：
+
+数组长度固定，集合长度不固定
+数组可以存储基本类型与引用类型，集合只能存储引用类型
+
+
+Collection：该体系结构的根接口，代表一组对象，称为 “集合”
+List：有序，有下标，元素可重复
+Set：无序，无下标，元素不能重复
+Collection 接口
+特点：代表一组任意类型的对象，无序，无下标，元素不重复
+方法：
+
+boolean add(Object obj)						 // 添加一个对象
+boolean addAll(Collection c)        // 将一个集合中的所有对象添加到此集合中
+void  clear()                                        // 清空此集合中的所有对象
+boolean contains(Object o)           // 检查此集合中是否包含 o 对象
+boolean  equals(Object o)               // 比较此集合是否与指定对象相等
+bool ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Hexo_Blog/posts/labview001/" title="FlappyBird (基于 LabVIEW) 的保姆级教程">     <img class="post_bg" src="http://r.photo.store.qq.com/psc?/V54SMeuj1XXnuT26KikT07cxqH392Yd2/45NBuzDIW489QBoVep5mcWHC2Iq*FV*mCenJLngKGsMRnl9ZCCHVlIOjncgUz7SXEN52NgWeITJsptRwtwOe*vWGzj03GG9v5SEZC98x0Tc!/r" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="FlappyBird (基于 LabVIEW) 的保姆级教程"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/labview001/" title="FlappyBird (基于 LabVIEW) 的保姆级教程">FlappyBird (基于 LabVIEW) 的保姆级教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-18T20:35:16.000Z" title="发表于 2021-04-19 04:35:16">2021-04-19</time></span></div><div class="content">
+Java 暂时停下了脚步，最近要做 LabVIEW 的大作业，无奈呀
+
+基于 LabVIEW 的一个像素鸟小游戏，在网络上找到资料，说明一下对这个程序的创建过程和理解过程。关于程序代码将在文章末尾给出，大家一起学习思路，共同进步！
+准备素材
+准备以下 FlappyBird 所需要用到的图片素材
+
+
+Ps: 这个 Score 图片没有用到，可以根据文章末尾的素材下载完整的素材，增添自己的想法，来完善游戏的功能
+
+思路简述
+这里我画了一个大致的结构图来描述一下
+
+分成三个大步骤：
+
+创建自定义控件以及主界面
+创建一个 While 循环
+退出循环后的处理
+
+游戏思想即为
+
+通过自定义控件完成游戏界面的绘制
+整个程序为一个 While 循环，每次循环更新所有控件的属性状态（位置，可见性等等），并在循环中做出判断游戏规则，处理分数，指出何时退出循环
+退出循环后的操作（关闭软件的前面板）
+
+详细制作过程
+准备前面板添加素材
+创建自定义控件
+
+在LabVIEW开发环境中依次选择菜单：“文件”–&gt;“新建…”，在打开的新建对话框中选择“自定义控件”项即可新建一个空白的.ctl文件并打开了控件编辑 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Hexo_Blog/posts/javalearn007/" title="Java入门学习记录（七）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（七）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn007/" title="Java入门学习记录（七）">Java入门学习记录（七）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-12T18:22:16.000Z" title="发表于 2021-04-13 02:22:16">2021-04-13</time></span></div><div class="content">
+内部类
+内部类就是在一个类的内部再定义一个完整的类
+12345class Outer {    class Inner {            }}
+
+
+编译之后可生成独立的字节码文件
+内部类可直接访问外部类的私有成员，而不破坏封装
+可为外部类提供必要的内部功能组件
+
+
+成员内部类
+在类的内部定义，与实例变量、实例方法同级别的类
+外部类的一个实例部分，创建内部类对象时，需要依赖外部类对象
+12345678910public class Demo {    public static void main(String[] args) {        // 创建外部类对象        Outer outer = new Outer();        // 创建内部类对象        Outer.Inner inner = outer.new Inner();        inner.method();    }}
+当外部类、内部类存在重名属性时，会优先访问内部类属性，若需要访问外部类属性，使用 Outer.this.attribute
+成员内部类不能包含静态成员，但可以包含静 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Hexo_Blog/posts/javalearn006/" title="Java入门学习记录（六）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（六）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn006/" title="Java入门学习记录（六）">Java入门学习记录（六）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-25T13:29:16.000Z" title="发表于 2021-03-25 21:29:16">2021-03-25</time></span></div><div class="content">
+异常机制 ( Exception )
+软件在运行过程中，可能会遇到一些问题，比如分母变成 0 ，用户输入格式不符合要求，内存溢出等等，这些都是异常
+异常处理就是让我们写的程序在遇到异常时做出合理的处理，不至于让程序崩溃
+Java 把异常当作对象处理，并定义了一个基类 java.lang.Throwable 作为所有异常的超类
+在 Java API 中已经定义了许多异常类，这些异常类分为两大类，错误 Error 和 异常 Exception
+
+
+Error 类对象由 Java 虚拟机生成并抛出，大多数错误与代码编写者所执行的操作无关
+Java 虚拟机运行错误 ( Virtual MechineError )，当 JVM 不再继续执行操作所需的内存资源时，将出现 OutOfMemoryError
+在 Exception 分支中有一个重要的子类 RuntimeException ( 运行时异常 )
+
+ArrayIndexOutOfBoundsException ( 数组下标越界异常 )
+NullPointerException ( 空指针异常 )
+ArithmeticException ( ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Hexo_Blog/posts/javalearn005/" title="Java入门学习记录（五）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（五）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn005/" title="Java入门学习记录（五）">Java入门学习记录（五）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-24T16:42:16.000Z" title="发表于 2021-03-25 00:42:16">2021-03-25</time></span></div><div class="content">
+OOP 面向对象编程(Object Oriented Programming)
+面向对象是相对于面向过程来讲的，面向对象方法，把相关的数据和方法组织为一个整体来看待，从更高的层次来进行系统建模，更贴近事物的自然运行模式，本质就是：以类的方式组织代码，以对象的组织数据
+三大特性
+
+封装 (Encapsulation)
+继承 (Inheritance)
+多态 (Polymorphism)
+
+
+
+学到这里需要对方法 method 有一个良好的印象，加深回顾一次再继续 !  !  !
+区分值传递和引用传递，与内存有关 static
+
+类与对象的创建
+类是一种抽象的数据类型，它是对某一类事物整体描述，但是并不能代表一个具体的事物
+对象是一个具体的实例，如：类是老师，对象为语文老师，数学老师等等，然后分别分配给他们相对应的属性和方法，相当于塑造这个对象
+使用 new 关键字创建对象
+1Teacher teacher1 = new Teacher();
+new 创建对象除了分配内存空间之外，还会给创建好的对象默认初始化，如: String 类型的初始化为 null ，以及对类中构造器( const ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/Hexo_Blog/posts/javalearn004/" title="Java入门学习记录（四）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（四）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn004/" title="Java入门学习记录（四）">Java入门学习记录（四）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-11T02:50:16.000Z" title="发表于 2021-03-11 10:50:16">2021-03-11</time></span></div><div class="content">
+方法详解
+方法
+Java 方法是语句的集合，它们在一起执行一个功能。
+
+方法是解决一类问题的步骤的有序组合
+方法包含于类或对象中
+方法在程序中被创建，在其他地方被引用
+
+方法包含一个方法头和一个方法体。下面是一个方法的所有部分：
+
+修饰符：可选。告诉编译器如何调用该方法，定义了方法的类型
+返回值类型：方法可能会返回值。返回值类型定义了方法的返回的值的类型。一些方法没有返回值，这种情况下返回值类型关键字为void
+方法名：是方法的实际名称。方法名和参数表共同构成方法签名
+参数类型：参数像一个占位符。当方法被调用时，传递值给参数。参数是可选的
+方法体：方法具体包含的语句，定义了方法的功能
+
+123456修饰符 返回值类型 方法名(参数类型1 参数名1, 参数类型2 参数名2, ...) {    ...    方法体    ...    return 返回值;}
+方法重载
+重载就是在一个类中，有相同的函数名称，但形参不同的函数
+重载规则：
+
+方法名称必须相同
+参数列表必须不同（如参数类型，顺序，数量等）
+方法的返回类型可以相同也可以不同
+仅仅返回类型不同不足以称为方法的重载
+
+命令行传参 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/Hexo_Blog/posts/javalearn003/" title="Java入门学习记录（三）">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（三）"></a></div><div class="recent-post-info"><a class="article-title" href="/Hexo_Blog/posts/javalearn003/" title="Java入门学习记录（三）">Java入门学习记录（三）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-06T21:47:16.000Z" title="发表于 2021-03-07 05:47:16">2021-03-07</time></span></div><div class="content">
+用户交互Scanner
+之前学习的语法中并没有实现程序和人的交互，但是Java提供给了这样一个工具类，可以获取用户的输入。java.util.Scannner是 Java5 的新特征，可以通过 Scannner 类来获取用户的输入。
+1Scanner s = new Scanner(System.in);
+通过 Scanner 类的 next() 与 nextLine() 方法获取输入的字符串，在读取前一般需要使用 hasNext() 与 hasNextLine() 判断是否还有输入的数据。
+1234567891011121314151617import java.util.Scannerpublic class Demo {    public static void main(String[] args) {        Scanner scanner = new Scanner(System.in);        System.out.println("使用next方式接收:");      //System.out.println("使用nextLine方式接收:");  ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/Hexo_Blog/page/2/">2</a><a class="extend next" rel="next" href="/Hexo_Blog/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ShenyanWu.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Shenyan Wu</div><div class="author-info__description">记录学习，记录生活</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/Hexo_Blog/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/Hexo_Blog/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Shenyan-Wu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Shenyan-Wu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:officialsyw@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_44730817?spm=1010.2135.3001.5343" target="_blank" title="CSDN"><i class="iconfont icon-csdn1"></i></a><a class="social-icon" href="http://sighttp.qq.com/authd?IDKEY=d3a93952ff42a0672292148c2b2a6b293a3f073491636155" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎访问本博客，大家有什么疑问可以一起交流研究哦，留言留下你的看法吧! <img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/announcement001.gif"></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/embeddedbackground.jpg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="总线协议概述"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/embeddedprotocol/" title="总线协议概述">总线协议概述</a><time datetime="2021-10-23T18:22:16.000Z" title="发表于 2021-10-24 02:22:16">2021-10-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/ROS.jpeg" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="ROS noetic 概述与环境搭建"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/roslearn001/" title="ROS noetic 概述与环境搭建">ROS noetic 概述与环境搭建</a><time datetime="2021-08-26T01:13:16.000Z" title="发表于 2021-08-26 09:13:16">2021-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十一）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn011/" title="Java入门学习记录（十一）">Java入门学习记录（十一）</a><time datetime="2021-07-20T20:03:16.000Z" title="发表于 2021-07-21 04:03:16">2021-07-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（十）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn010/" title="Java入门学习记录（十）">Java入门学习记录（十）</a><time datetime="2021-05-28T01:13:16.000Z" title="发表于 2021-05-28 09:13:16">2021-05-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）"><img src="https://cdn.jsdelivr.net/gh/Shenyan-Wu/BlogImages/img/java.png" onerror="this.onerror=null;this.src='/Hexo_Blog/img/404.jpg'" alt="Java入门学习记录（九）"/></a><div class="content"><a class="title" href="/Hexo_Blog/posts/javalearn009/" title="Java入门学习记录（九）">Java入门学习记录（九）</a><time datetime="2021-05-11T03:11:16.000Z" title="发表于 2021-05-11 11:11:16">2021-05-11</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/Hexo_Blog/tags/Java/" style="font-size: 1.42em; color: #99a6b7">Java</a> <a href="/Hexo_Blog/tags/LabVIEW/" style="font-size: 1.1em; color: #999">LabVIEW</a> <a href="/Hexo_Blog/tags/ROS/" style="font-size: 1.1em; color: #999">ROS</a> <a href="/Hexo_Blog/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 1.5em; color: #99a9bf">学习记录</a> <a href="/Hexo_Blog/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="font-size: 1.1em; color: #999">嵌入式</a> <a href="/Hexo_Blog/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.34em; color: #99a3b0">教程</a> <a href="/Hexo_Blog/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 1.18em; color: #999ca1">转载</a> <a href="/Hexo_Blog/tags/%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/" style="font-size: 1.26em; color: #999fa8">配置环境</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Hexo_Blog/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Hexo_Blog/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Hexo_Blog/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Hexo_Blog/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Hexo_Blog/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Hexo_Blog/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Hexo_Blog/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Hexo_Blog/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">16</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">32.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-06-13T05:46:23.877Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Shenyan Wu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><br/> <img title="博客框架为Hexo" class="entered loading" src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" data-ll-status="loading"> &nbsp;&nbsp; <img title="主题采用butterfly" class="entered loading" src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站使用JsDelivr为静态资源提供CDN加速" class="entered loading" src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站托管于Coding" class="entered loading" src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站项目由Gtihub托管" class="entered loading" src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" data-ll-status="loading"> &nbsp;&nbsp; <img title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" class="entered loading" src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" data-ll-status="loading"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/Hexo_Blog/js/utils.js"></script><script src="/Hexo_Blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/Hexo_Blog/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(function (result) {
+      if (true) {
+        var sub = "欢迎来到我的博客,o(〃'▽'〃)o".length == 0 ? new Array() : "欢迎来到我的博客,o(〃'▽'〃)o".split(',')
+        var content = result.data.content
+        var both = sub.unshift(content)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div><script src="/js/crash_cheat.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="Html,CSS,C++,Java,JavaScript,Python,Ruby,Clion,PyCharm,Intellij IDEA,Visual Studio Code" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/Hexo_Blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/Hexo_Blog/live2dw/assets/haruto.model.json"},"display":{"position":"letf","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
